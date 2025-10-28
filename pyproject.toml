@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/arize_mcp/version.py"
+
+[project]
+name = "arize-tracing-assistant"
+description = "Arize tracing assistant"
+readme = "README.md"
+dynamic = ["version"]
+license = "BSD-2-clause"
+licence-files = ["LICENSE"]
+keywords = [
+    "Observability",
+    "Monitoring",
+    "Explainability",
+    "Tracing"
+]
+authors = [
+  { name = "Arize AI", email = "support@arize.com" },
+]
+maintainers = [
+  { name = "Arize AI", email = "support@arize.com" },
+]  
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Logging",
+    "Topic :: System :: Monitoring",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.9.0",
+    "requests>=2.32.3",
+]
+[project.scripts]
+arize-tracing-assistant = "arize_mcp:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/arize_mcp"]
+include = [
+    "src/arize_mcp/*.py",
+    "src/arize_mcp/refs/auto_inst_examples/**/*.md",
+    "src/arize_mcp/refs/manual_inst_examples/*.md",
+    "src/arize_mcp/refs/advanced_tracing_docs/*.md",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/arize_mcp/*.py",
+    "src/arize_mcp/refs/auto_inst_examples/**/*.md",
+    "src/arize_mcp/refs/manual_inst_examples/*.md",
+    "src/arize_mcp/refs/advanced_tracing_docs/*.md",
+]
+
+[project.urls]
+Documentation = "https://arize.com/docs/ax/observe/quickstart-llm"

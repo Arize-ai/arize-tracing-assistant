@@ -1,0 +1,8 @@
+"mcpServers": {
+    "arize-tracing-assistant": {
+      "command": "uvx",
+      "args": [
+      "arize-tracing-assistant@latest"
+    ]
+    }
+  }

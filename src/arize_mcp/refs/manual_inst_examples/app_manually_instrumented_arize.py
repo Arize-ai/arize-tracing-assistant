@@ -1,0 +1,144 @@
+# Manually instrumentated streamlit RAG app for Arize using Open Telemetry and Open Inference
+# -----------------------------------------------------------------------------------------
+
+
+from dotenv import load_dotenv
+
+import streamlit as st
+from langchain.chat_models import init_chat_model
+from langchain_openai import OpenAIEmbeddings
+from langchain_core.vectorstores import InMemoryVectorStore
+
+from langchain import hub
+from langchain_core.documents import Document
+
+from langgraph.graph import START, StateGraph
+from typing_extensions import List, TypedDict
+
+from opentelemetry.sdk import trace as trace_sdk
+from openinference.semconv.trace import SpanAttributes, OpenInferenceSpanKindValues
+from opentelemetry import trace as trace_api
+from arize.otel import register
+
+load_dotenv()
+
+
+# We wrap tracer-provider initialization in a Streamlit-cached function so it
+# executes only once, preventing the "Overriding of current TracerProvider is
+# not allowed" error when Streamlit re-runs the script.
+@st.cache_resource(show_spinner=False)
+def _init_tracer_provider() -> trace_sdk.TracerProvider:  # type: ignore
+    """Initialize and register the global TracerProvider (runs once)."""
+
+    tracer_provider = register(
+        space_id="ARIZE_SPACE_ID",
+        api_key="ARIZE_API_KEY",
+        project_name="my-manually-instrumented-project",
+    )
+
+    return tracer_provider.get_tracer(__name__)
+
+
+# Initialize the tracer provider once at import time
+_TRACER_PROVIDER = _init_tracer_provider()
+
+
+llm = init_chat_model("claude-3-5-sonnet-latest", model_provider="anthropic")
+
+image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/One_Ring_Blender_Render.png/1280px-One_Ring_Blender_Render.png"
+st.image(image_url, width=300)
+st.title("Lord of the Rings RAG App")
+st.write("Ask the model and you shall know.")
+
+
+embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+vector_store = InMemoryVectorStore(embeddings).load(
+    "vector_store_openai.json", embeddings
+)
+
+# Define prompt for question-answering
+prompt = hub.pull("rlm/rag-prompt")
+
+
+class State(TypedDict):
+    question: str
+    context: List[Document]
+    answer: str
+
+
+# Define application steps
+def retrieve(state: State):
+    tracer = trace_api.get_tracer(__name__)
+
+    # Start a span for the retrieve step, enriching the span with Open Inference attributes
+    with tracer.start_as_current_span(
+        "retrieve",
+        attributes={
+            SpanAttributes.OPENINFERENCE_SPAN_KIND: OpenInferenceSpanKindValues.RETRIEVER.value,
+            SpanAttributes.INPUT_VALUE: state["question"],
+        },
+    ) as span:
+        retrieved_docs = vector_store.similarity_search(state["question"])
+
+        # Attach retrieved docs (truncate to avoid huge payloads)
+        preview_docs = [doc.page_content[:200] for doc in retrieved_docs]
+        span.set_attribute(SpanAttributes.RETRIEVAL_DOCUMENTS, preview_docs)
+
+    return {"context": retrieved_docs}
+
+
+def generate(state: State):
+    tracer = trace_api.get_tracer(__name__)
+    # Start a span for the generate step, enriching the span with Open Inference attributes
+    with tracer.start_as_current_span(
+        "generate",
+        attributes={
+            SpanAttributes.OPENINFERENCE_SPAN_KIND: OpenInferenceSpanKindValues.LLM.value,
+            "llm.model": "claude-3-5-sonnet-latest",
+            SpanAttributes.INPUT_VALUE: state["question"],
+            "rag.context_length": len(state["context"]),
+        },
+    ) as span:
+        docs_content = "\n\n".join(doc.page_content for doc in state["context"])
+        messages = prompt.invoke(
+            {"question": state["question"], "context": docs_content}
+        )
+        response = llm.invoke(messages)
+
+        # Store output
+        span.set_attribute(SpanAttributes.OUTPUT_VALUE, str(response.content))
+
+    return {"answer": response.content}
+
+
+graph_builder = StateGraph(State)
+graph_builder.add_node(retrieve)
+graph_builder.add_node(generate)
+graph_builder.add_edge(START, "retrieve")
+graph_builder.add_edge("retrieve", "generate")
+
+graph = graph_builder.compile()
+
+
+query = st.text_input("Enter your question:")
+
+
+if query:
+    # Start a trace (a root span) when the app is invoked, the Agent span is the parent span and wraps the following spans for each step
+    tracer = trace_api.get_tracer(__name__)
+    with tracer.start_as_current_span(
+        name="rag_query",
+        attributes={
+            SpanAttributes.OPENINFERENCE_SPAN_KIND: OpenInferenceSpanKindValues.AGENT.value,
+            SpanAttributes.INPUT_VALUE: query,
+        },
+    ) as root_span:
+        result = graph.invoke({"question": query})
+
+        # Attach answer to root span
+        root_span.set_attribute(SpanAttributes.OUTPUT_VALUE, result["answer"])
+
+        st.write(result["answer"])
+
+        with st.expander("Context"):
+            st.write(result["context"])
