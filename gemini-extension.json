@@ -1,8 +1,11 @@
-"mcpServers": {
-    "arize-tracing-assistant": {
-      "command": "uvx",
-      "args": [
-      "arize-tracing-assistant@latest"
-    ]
+{
+    "name": "arize-tracing-assistant",
+    "description": "Provides access to docs and support to instrument your AI application with Arize AX.",
+    "version": "0.1.0",
+    "mcpServers": {
+        "arize-tracing-assistant": {
+            "command": "uvx",
+            "args": ["arize-tracing-assistant@latest"]
+        }
     }
-  }
+}
