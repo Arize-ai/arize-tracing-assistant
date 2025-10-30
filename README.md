@@ -98,6 +98,16 @@ Add the following snippet to your MCP config file:
   }
 ```
 
+### CLI Integration
+
+#### Gemini CLI
+
+Install using the Gemini CLI extension:
+
+```bash
+gemini extensions install https://github.com/Arize-ai/arize-tracing-assistant
+```
+
 ## Usage
 
 Once the MCP server is running, ask your IDE/LLM questions about tracing or general Arize support like...
@@ -124,3 +134,4 @@ Once the MCP server is running, ask your IDE/LLM questions about tracing or gene
   ```bash
   npx @modelcontextprotocol/inspector uvx arize-tracing-assistant@latest
   ```
+
