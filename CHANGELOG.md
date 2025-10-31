@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.10](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.9...arize-tracing-assistant-python/v0.2.10) (2025-10-31)
+
+
+### 🐛 Bug Fixes
+
+* update Gemini CLI extension syntax to proper format ([#56053](https://github.com/Arize-ai/arize/issues/56053)) ([f7f1db0](https://github.com/Arize-ai/arize/commit/f7f1db0f30fd11e5f1d3e1a66f813ccc50f1bbdf))
+
 ## [0.2.9](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.8...arize-tracing-assistant-python/v0.2.9) (2025-10-31)
 
 
