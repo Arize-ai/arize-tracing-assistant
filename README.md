@@ -23,7 +23,7 @@ Connect it to your IDE or LLM and get curated tracing examples, best practices a
 
 ### Install uv
 
-Make sure **uv** -- the fast Python package manager -- is installed on your system. Installation instructions: [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/#standalone-installer).
+Make sure **uv** - the fast Python package manager - is installed on your system. Installation instructions: [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/#standalone-installer).
 
 - On macOS:
   ```bash
@@ -100,7 +100,7 @@ Add the following snippet to your MCP config file:
 
 ## Usage
 
-Once the MCP server is running, ask your IDE/LLM questions about tracing or general Arize support like...
+Once the MCP server is running, ask your IDE or LLM questions about tracing or general Arize support like...
 
 - Instrument this app using Arize
 - Can you use manual instrumentation so that I have more control over my traces?

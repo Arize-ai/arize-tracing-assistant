@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.2.9](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.8...arize-tracing-assistant-python/v0.2.9) (2025-10-31)
+
+
+### 📚 Documentation
+
+* update README usage to use "IDE or LLM" instead of "IDE/LLM" ([#55960](https://github.com/Arize-ai/arize/issues/55960)) ([cfd4215](https://github.com/Arize-ai/arize/commit/cfd4215480ebb77ac3165d99d50e1381c1b0179e))
+
+## [0.2.8](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.7...arize-tracing-assistant-python/v0.2.8) (2025-10-31)
+
+
+### 📚 Documentation
+
+* refine README usage to use IDE/LLM abbreviation ([#55955](https://github.com/Arize-ai/arize/issues/55955)) ([cf4e5f5](https://github.com/Arize-ai/arize/commit/cf4e5f580020f0266218f63105eace934ff6b25a))
+
+## [0.2.7](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.6...arize-tracing-assistant-python/v0.2.7) (2025-10-30)
+
+
+### 📚 Documentation
+
+* minor readme change ([#55952](https://github.com/Arize-ai/arize/issues/55952)) ([06bc6e8](https://github.com/Arize-ai/arize/commit/06bc6e8697b52b58270f93d661d936d2a54f4b78))
+
+## [0.2.6](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.5...arize-tracing-assistant-python/v0.2.6) (2025-10-28)
+
+
+### 📚 Documentation
+
+* Minor Readme update ([#55750](https://github.com/Arize-ai/arize/issues/55750)) ([bc477cb](https://github.com/Arize-ai/arize/commit/bc477cbfcc47f6340b510f7cf53fedef1985633c))
+
 ## [0.2.5](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.4...arize-tracing-assistant-python/v0.2.5) (2025-10-28)
 
 
