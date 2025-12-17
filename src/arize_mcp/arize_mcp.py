@@ -5,7 +5,7 @@ from pathlib import Path
 
 mcp = FastMCP("Arize-MCP-Tracing-Assistant")
 
-RUNLLM_MCP_URL = "https://mcp.runllm.com/mcp/"  # Change to your MCP endpoint if needed
+RUNLLM_MCP_URL = "https://mcp.runllm.com/mcp"  # Change to your MCP endpoint if needed
 RUNLLM_HEADERS = {
     "assistant-name": "arize-ax",  # Adjust if your assistant name is different
     "Content-Type": "application/json",  # MCP servers use JSON-RPC 2.0 payloads

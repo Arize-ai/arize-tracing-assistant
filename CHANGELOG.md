@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.11](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.10...arize-tracing-assistant-python/v0.2.11) (2025-12-17)
+
+
+### 🐛 Bug Fixes
+
+* update runllm mcp support endpoint  ([#58555](https://github.com/Arize-ai/arize/issues/58555)) ([974bd84](https://github.com/Arize-ai/arize/commit/974bd8490c60d0e033f935a1fb109b8a9ac40121))
+
 ## [0.2.10](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.9...arize-tracing-assistant-python/v0.2.10) (2025-10-31)
 
 
