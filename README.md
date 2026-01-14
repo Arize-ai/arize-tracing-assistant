@@ -46,6 +46,28 @@ Make sure **uv** - the fast Python package manager - is installed on your system
 
 ### IDE integration
 
+#### [Antigravity](https://antigravity.google/)
+
+1. Open the MCP Store panel within the "..." dropdown at the top of the editor's side panel.
+2. Type "Arize" in the search and click Install.
+
+OR
+
+1. To Install as a Custom MCP Server, Click on "Manage MCP Servers"
+2. Click on "View raw config"
+3. Add the following code to your mcp_config.json:
+
+```json
+  "mcpServers": {
+    "arize-tracing-assistant": {
+      "command": "uvx",
+      "args": [
+      "arize-tracing-assistant@latest"
+    ]
+    }
+  }
+```
+
 #### Cursor
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=arize-tracing-assistant&config=eyJjb21tYW5kIjoidXZ4IGFyaXplLXRyYWNpbmctYXNzaXN0YW50QGxhdGVzdCIsImVudiI6e319)

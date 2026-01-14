@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.12](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.11...arize-tracing-assistant-python/v0.2.12) (2026-01-14)
+
+
+### 📚 Documentation
+
+* Update antigravity instructions ([#59728](https://github.com/Arize-ai/arize/issues/59728)) ([184bb10](https://github.com/Arize-ai/arize/commit/184bb1081fa04059f09a38664649cd607d6c1b60))
+
 ## [0.2.11](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.10...arize-tracing-assistant-python/v0.2.11) (2025-12-17)
 
 
