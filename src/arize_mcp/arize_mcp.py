@@ -59,6 +59,8 @@ FRAMEWORK_MAP = {
     "prompt-flow": "prompt-flow",
     "pydanticai": "pydantic-ai",
     "pydantic-ai": "pydantic-ai",
+    "strands-agents": "strands-agents",
+    "strands": "strands-agents",
     "together": "together",
     "together-ai": "together",
     "togetherai": "together",
@@ -204,7 +206,7 @@ def get_arize_tracing_docs(framework: str, language: str) -> str:
         LLM provider or framework. One of:
         ["agno", "amazon-bedrock", "anthropic", "autogen", "beeai", "crewai", "dspy", "google-gen-ai", "groq", "guardrails-ai", "haystack",
         "hugging-face-smolagents", "instructor", "langchain", "langflow", "langgraph", "litellm", "llamaindex", "mistralai", "openai", "openai-agents", "prompt-flow",
-        "pydantic-ai", "together", "vercel", "vertexai"]
+        "pydantic-ai", "strands-agents", "together", "vercel", "vertexai"]
     language : str
         Programming language: "python" or "typescript"
 
@@ -293,7 +295,7 @@ def get_phoenix_tracing_example(framework: str, language: str) -> str:
         LLM provider or framework. One of:
         ["agno", "amazon-bedrock", "anthropic", "autogen", "beeai", "crewai", "dspy", "google-gen-ai", "groq", "guardrails-ai", "haystack",
         "hugging-face-smolagents", "instructor", "langchain", "langflow", "langgraph", "litellm", "llamaindex", "mistralai", "openai", "openai-agents", "prompt-flow",
-        "pydantic-ai", "together", "vercel", "vertexai"]
+        "pydantic-ai", "strands-agents", "together", "vercel", "vertexai"]
     language : str
         Programming language: "python" or "typescript". Defaults to "python".
 

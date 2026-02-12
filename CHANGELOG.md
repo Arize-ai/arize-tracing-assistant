@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.14](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.13...arize-tracing-assistant-python/v0.2.14) (2026-02-04)
+
+
+### ❔ Miscellaneous Chores
+
+* **deps:** update tracing assistant dependencies ([#61224](https://github.com/Arize-ai/arize/issues/61224)) ([5e0643b](https://github.com/Arize-ai/arize/commit/5e0643bd2f2bc29927d606607c4b23a068763379))
+* **main:** Release ` arize-tracing-assistant-python` v0.2.13 ([#61236](https://github.com/Arize-ai/arize/issues/61236)) ([0bb321c](https://github.com/Arize-ai/arize/commit/0bb321c45a18697b2f22301bcfec1141aff08232))
+
+## [0.2.13](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.12...arize-tracing-assistant-python/v0.2.13) (2026-01-28)
+
+
+### ❔ Miscellaneous Chores
+
+* **deps:** update tracing assistant dependencies ([#61224](https://github.com/Arize-ai/arize/issues/61224)) ([5e0643b](https://github.com/Arize-ai/arize/commit/5e0643bd2f2bc29927d606607c4b23a068763379))
+
 ## [0.2.12](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.11...arize-tracing-assistant-python/v0.2.12) (2026-01-14)
 
 
