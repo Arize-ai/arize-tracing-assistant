@@ -72,7 +72,7 @@ OR
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=arize-tracing-assistant&config=eyJjb21tYW5kIjoidXZ4IGFyaXplLXRyYWNpbmctYXNzaXN0YW50QGxhdGVzdCIsImVudiI6e319)
 
-1. Go to Cursor Settings > MCP.
+1. Go to Cursor Settings -> MCP.
 2. Click "Add new global MCP server" and add the server to your config JSON.
 3. Remove the `env` section if you don't have access to RunLLM.
 
