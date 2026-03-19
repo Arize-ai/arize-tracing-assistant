@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.2](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.3.1...arize-tracing-assistant-python/v0.3.2) (2026-03-19)
+
+
+### 🐛 Bug Fixes
+
+* update mcp deps ([#66111](https://github.com/Arize-ai/arize/issues/66111)) ([0f094bf](https://github.com/Arize-ai/arize/commit/0f094bf16360cfddb9e8ab63b3f2d90b3f62ccdb))
+
+## [0.3.1](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.3.0...arize-tracing-assistant-python/v0.3.1) (2026-02-20)
+
+
+### ❔ Miscellaneous Chores
+
+* **deps:** update tracing assistant dependencies ([#63323](https://github.com/Arize-ai/arize/issues/63323)) ([0d95679](https://github.com/Arize-ai/arize/commit/0d956790876cc2b8e4af3348137b0898e54e733b))
+
 ## [0.3.0](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.2.13...arize-tracing-assistant-python/v0.3.0) (2026-02-12)
 
 ### 🎁 New Features
