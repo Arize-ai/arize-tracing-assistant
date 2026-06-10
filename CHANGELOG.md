@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.3.5...arize-tracing-assistant-python/v0.3.6) (2026-06-10)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** patch starlette Dependabot alert in arize-tracing-assistant ([#74413](https://github.com/Arize-ai/arize/issues/74413)) ([4d76a45](https://github.com/Arize-ai/arize/commit/4d76a45b55ac7311eb62c54e0e595f842de87089))
+
 ## [0.3.5](https://github.com/Arize-ai/arize/compare/arize-tracing-assistant-python/v0.3.4...arize-tracing-assistant-python/v0.3.5) (2026-06-02)
 
 
